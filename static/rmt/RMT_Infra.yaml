@@ -1,0 +1,300 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  This template deploys one public and one private EC2 instance based on an AMI for a SUSE Linux
+  Enterprise Server OS 12 SP 5. It also includes a security group that allows in
+  traffic on port 22 for SSH connections. These instances are placed in
+  in public and private subnets, in a VPC that also includes an internet
+  gateway, public route table, and route that allow the public EC2 instance to
+  connect to the internet.
+Parameters:
+  KeyPairName:
+    Type: String
+    Description: Name of the EC2 Key Pair (without the file extension)
+  WorkshopInstanceType:
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t3.micro
+      - t2.small
+    Description: 'Enter t2.micro, t3.micro, or t2.small. Default is t2.micro.'
+  RemoteAccessCIDR:
+    AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$
+    ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/x
+    Description: Allowed CIDR block for external SSH access to the RMT server
+    Type: String
+Metadata:
+  'AWS::CloudFormation::Designer':
+    c5b04bd4-fb56-484d-8ce6-79272a0ef0ac:
+      size:
+        width: 140
+        height: 140
+      position:
+        x: 390.0118103027344
+        'y': 104.0206527709961
+      z: 0
+      embeds: []
+    447ec6bb-785a-4471-83d6-cd7676eb4aac:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 615.0118103027344
+        'y': 99.0206527709961
+      z: 0
+      embeds: []
+    4dd8fe14-0b46-4576-b6cf-9f3e36d7b7e8:
+      source:
+        id: c5b04bd4-fb56-484d-8ce6-79272a0ef0ac
+      target:
+        id: 447ec6bb-785a-4471-83d6-cd7676eb4aac
+      z: 0
+    9af845be-8cfd-4adf-982c-73c96272a4ec:
+      size:
+        width: 140
+        height: 140
+      position:
+        x: 867.0118103027344
+        'y': 95.0206527709961
+      z: 0
+      embeds: []
+    207926dc-3aab-4d77-93d9-1c5a41ec9ee2:
+      size:
+        width: 140
+        height: 140
+      position:
+        x: 1080.0118103027344
+        'y': 97.0206527709961
+      z: 0
+      embeds: []
+    80e1db14-115f-4940-9989-ad17178c57db:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 56.011810302734375
+        'y': 103.0206527709961
+      z: 0
+      embeds: []
+      isassociatedwith:
+        - 447ec6bb-785a-4471-83d6-cd7676eb4aac
+      iscontainedinside:
+        - 3921953b-2858-4987-9698-f7bccb6d5ebb
+    3921953b-2858-4987-9698-f7bccb6d5ebb:
+      size:
+        width: 140
+        height: 140
+      position:
+        x: 113.01181030273438
+        'y': 207.0206527709961
+      z: 0
+      embeds: []
+    5f5aaae6-f435-4964-b61b-9d2e3fd7b561:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 472.0118103027344
+        'y': 283.0206527709961
+      z: 0
+      embeds: []
+      iscontainedinside:
+        - c5b04bd4-fb56-484d-8ce6-79272a0ef0ac
+    469a26e7-24dc-4421-ad51-d5e762c1cc6d:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 650
+        'y': 260
+      z: 0
+      embeds: []
+      isassociatedwith:
+        - 5f5aaae6-f435-4964-b61b-9d2e3fd7b561
+      iscontainedinside:
+        - 9af845be-8cfd-4adf-982c-73c96272a4ec
+    979d0c0a-08bb-42d2-bd38-598cabf99338:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 796.4544692829929
+        'y': 276.07108822079925
+      z: 0
+      embeds: []
+      isassociatedwith:
+        - 5f5aaae6-f435-4964-b61b-9d2e3fd7b561
+      iscontainedinside:
+        - 207926dc-3aab-4d77-93d9-1c5a41ec9ee2
+Resources:
+  LabVPC:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: SUSE Lab VPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: c5b04bd4-fb56-484d-8ce6-79272a0ef0ac
+      cdk_nag:
+        rules_to_suppress:
+          - id: AwsSolutions-VPC7
+            reason: "Demo / Workshop environment, no VPC flow logs necessary."
+      cfn_nag:
+        rules_to_suppress:
+          - id: W60
+            reason: "Demo / Workshop environment, no VPC flow logs necessary."
+  IGW:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties:
+      Tags:
+        - Key: Name
+          Value: SUSE Lab IGW
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 447ec6bb-785a-4471-83d6-cd7676eb4aac
+  IGWAttachment:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      InternetGatewayId: !Ref IGW
+      VpcId: !Ref LabVPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 4dd8fe14-0b46-4576-b6cf-9f3e36d7b7e8
+  PublicSubnet:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref LabVPC
+      AvailabilityZone: !Select 
+        - 0
+        - !GetAZs ''
+      CidrBlock: 10.0.1.0/24
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: SUSE Lab Public Subnet
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 9af845be-8cfd-4adf-982c-73c96272a4ec
+      cfn_nag:
+        rules_to_suppress:
+          - id: W33
+            reason: "We need a public subnet with public ip addresses"
+  PrivateSubnet:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref LabVPC
+      AvailabilityZone: !Select 
+        - 0
+        - !GetAZs ''
+      CidrBlock: 10.0.11.0/24
+      Tags:
+        - Key: Name
+          Value: SUSE Lab Private Subnet
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 207926dc-3aab-4d77-93d9-1c5a41ec9ee2
+  PublicRoute:
+    Type: 'AWS::EC2::Route'
+    DependsOn: IGWAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref IGW
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 80e1db14-115f-4940-9989-ad17178c57db
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref LabVPC
+      Tags:
+        - Key: Name
+          Value: SUSE Lab Public Route Table
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 3921953b-2858-4987-9698-f7bccb6d5ebb
+  LabSubnetRouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PublicSubnet
+      RouteTableId: !Ref PublicRouteTable
+  LabSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable SSH from CIDR defined by RemoteAccessCIDR CloudFormation Parameter
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: !Ref RemoteAccessCIDR
+          Description: Allow incoming SSH traffic from IP address or range defined in RemoteAccessCIDR Parameter
+      Tags:
+        - Key: Name
+          Value: SUSE RMT Security Group
+      VpcId: !Ref LabVPC
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 5f5aaae6-f435-4964-b61b-9d2e3fd7b561
+      cdk_nag:
+        rules_to_suppress:
+          - id: CdkNagValidationFailure
+            reason: "cdk_nag raise this error because of the CidrIp Ref."
+      cfn_nag:
+        rules_to_suppress:
+          - id: F1000
+            reason: "Demo / Workshop environment, not necessary to explicit define outbound rules."
+  RMT:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: ami-064df40021b552f2e
+      InstanceType: !Ref WorkshopInstanceType
+      SubnetId: !Ref PublicSubnet
+      SecurityGroupIds:
+        - !Ref LabSecurityGroup
+      KeyName: !Ref KeyPairName
+      BlockDeviceMappings:
+        - DeviceName: /dev/sdm
+          Ebs:
+            VolumeType: gp2
+            DeleteOnTermination: 'true'
+            VolumeSize: '30'
+      Tags:
+        - Key: Name
+          Value: SUSE RMT Instance
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 469a26e7-24dc-4421-ad51-d5e762c1cc6d
+      cdk_nag:
+        rules_to_suppress:
+          - id: AwsSolutions-EC26
+            reason: "Demo / Workshop environment, not necessary to encrypt EBS volumes."
+          - id: AwsSolutions-EC28
+            reason: "Demo / Workshop environment, not necessary to enabled detailed monitoring."
+          - id: AwsSolutions-EC29
+            reason: "Demo / Workshop environment, not necessary to enabled turn on termination protection."
+  PrivateBYOSInstance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: ami-064df40021b552f2e
+      InstanceType: !Ref WorkshopInstanceType
+      SubnetId: !Ref PrivateSubnet
+      SecurityGroupIds:
+        - !Ref LabSecurityGroup
+      KeyName: !Ref KeyPairName
+      Tags:
+        - Key: Name
+          Value: BYOS Private Lab Instance
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 979d0c0a-08bb-42d2-bd38-598cabf99338
+      cdk_nag:
+        rules_to_suppress:
+          - id: AwsSolutions-EC26
+            reason: "Demo / Workshop environment, not necessary to encrypt EBS volumes."
+          - id: AwsSolutions-EC28
+            reason: "Demo / Workshop environment, not necessary to enabled detailed monitoring."
+          - id: AwsSolutions-EC29
+            reason: "Demo / Workshop environment, not necessary to enabled turn on termination protection."

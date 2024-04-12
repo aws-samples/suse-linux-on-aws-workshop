@@ -1,0 +1,31 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+version: 2.0
+
+defaultLocaleCode: en-US
+localeCodes:
+  - en-US
+
+awsAccountConfig:
+  accountSources:
+    - WorkshopStudio
+    - CustomerProvided
+  regionConfiguration:
+    deployableRegions:
+      recommended:
+        - us-east-1
+        - us-east-2
+    minAccessibleRegions: 1
+    maxAccessibleRegions: 3
+    accessibleRegions:
+      recommended:
+        - us-east-1
+        - us-east-2
+  participantRole:
+    managedPolicies:
+      - "arn:aws:iam::aws:policy/AdministratorAccess"
+infrastructure:
+    cloudformationTemplates:
+      - templateLocation: static/cfn.yaml
+        label: lab infrastructure template
