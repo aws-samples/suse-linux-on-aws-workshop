@@ -1,17 +1,16 @@
-## My Project
+## SUSE Linux on AWS Workshop
 
-TODO: Fill this README out!
+This repository contains the source code and assets of the workshop. 
+To get started with the **SUSE Linux on AWS** Workshop visit https://catalog.workshops.aws/suse-linux-on-aws.
 
-Be sure to:
+## Contributing
 
-* Change the title in this README
-* Edit your repository description on GitHub
+See [Contributing Guidelines](CONTRIBUTING.md) for more information.
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [Security issue notifications](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+This Workshop is licensed under the MIT-0 License. See the LICENSE file.

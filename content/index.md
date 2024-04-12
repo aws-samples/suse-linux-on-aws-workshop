@@ -17,3 +17,11 @@ product portfolio and learn more about:
 - SUSE Manager
 
 Each module will contain a hands-on lab, and we will also take a look at best-practice deployment options and integration with AWS services.
+
+-----
+
+The source code and assets of the workshop are licensed under [MIT-0](https://github.com/aws-samples/suse-linux-on-aws-workshop/blob/main/LICENSE) and available on GitHub: https://github.com/aws-samples/suse-linux-on-aws-workshop
+
+We welcome you to use the [GitHub issue tracker](https://github.com/aws-samples/suse-linux-on-aws-workshop/issues) to report bugs or suggest features.
+
+Interested to Contribute? See [Contributing Guidelines](https://github.com/aws-samples/suse-linux-on-aws-workshop/blob/main/CONTRIBUTING.md) for more information.
