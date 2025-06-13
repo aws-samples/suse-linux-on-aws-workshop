@@ -346,18 +346,18 @@ It will ask you to confirm that you want to continue, enter y to confirm the dow
 Now that jq has been installed, use the below command to display the latest image.
 
 :::code{showCopyAction=true showLineNumbers=true} 
-pint amazon images --region us-east-1 --active --json | jq '.images | last(.[] | select(.name | startswith("suse-sles-15-sp4-v")))'
+pint amazon images --region us-east-1 --active --json | jq '.images | last(.[] | select(.name | startswith("suse-sles-15-sp6-v")))'
 :::
 
 :::code{showCopyAction=false showLineNumbers=true}
-ec2-user@ip-10-0-1-233:~> pint amazon images --region us-east-1 --active --json | jq '.images | last(.[] | select(.name | startswith("suse-sles-15-sp4-v")))'
+ec2-user@ip-172-31-88-239:~> pint amazon images --region us-east-1 --active --json | jq '.images | last(.[] | select(.name | startswith("suse-sles-15-sp6-v")))'
 {
-  "changeinfo": "https://publiccloudimagechangeinfo.suse.com/amazon/suse-sles-15-sp4-v20230502-ecs-hvm-ssd-x86_64/",
+  "changeinfo": "https://publiccloudimagechangeinfo.suse.com/amazon/suse-sles-15-sp6-v20250409-ecs-hvm-ssd-x86_64/",
   "deletedon": "",
   "deprecatedon": "",
-  "id": "ami-09f1e510620fc1106",
-  "name": "suse-sles-15-sp4-v20230502-ecs-hvm-ssd-x86_64",
-  "publishedon": "20230502",
+  "id": "ami-0201e8f3b4e607957",
+  "name": "suse-sles-15-sp6-v20250409-ecs-hvm-ssd-x86_64",
+  "publishedon": "20250409",
   "region": "us-east-1",
   "replacementid": "",
   "replacementname": "",
@@ -382,21 +382,21 @@ Because PINT is hosted by SUSE, we can verify an image is published on the Marke
 Once you have copied that ID, you can then search for it using pint to ensure that the image is official, for example:
 
 :::code{showCopyAction=true showLineNumbers=true} 
-pint amazon images --filter "id=ami-09252aa4ac9d4ee50" --json | jq
+pint amazon images --filter "id=ami-0d6a3fb3bfdd87b52" --json | jq
 :::
 :::code{}
 {
   "images": [
     {
-      "changeinfo": "https://publiccloudimagechangeinfo.suse.com/amazon/suse-sles-12-sp5-v20221105-hvm-ssd-x86_64/",
+      "changeinfo": "https://publiccloudimagechangeinfo.suse.com/amazon/suse-sles-12-sp5-v20250107-hvm-ssd-x86_64/",
       "deletedon": "",
-      "deprecatedon": "20230206",
-      "id": "ami-09252aa4ac9d4ee50",
-      "name": "suse-sles-12-sp5-v20221105-hvm-ssd-x86_64",
-      "publishedon": "20221105",
+      "deprecatedon": "20250205",
+      "id": "ami-0d6a3fb3bfdd87b52",
+      "name": "suse-sles-12-sp5-v20250107-hvm-ssd-x86_64",
+      "publishedon": "20250107",
       "region": "us-east-1",
-      "replacementid": "ami-0dacd9d37849a9f38",
-      "replacementname": "suse-sles-12-sp5-v20230206-hvm-ssd-x86_64",
+      "replacementid": "ami-031ee9cb7f78f26ad",
+      "replacementname": "suse-sles-12-sp5-v20250205-hvm-ssd-x86_64",
       "state": "deprecated"
     }
   ]
