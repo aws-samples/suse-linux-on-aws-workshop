@@ -21,6 +21,7 @@ reported the issue. Please try to include as much information as you can. Detail
 
 
 ## Contributing via Pull Requests
+
 Contributions via pull requests are much appreciated. Before sending us a pull request, please ensure that:
 
 1. You are working against the latest source on the *main* branch.
@@ -39,6 +40,46 @@ To send us a pull request, please:
 GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
+### Workshop Content Distribution Workflow
+
+This workshop maintains two locations for its content, with GitHub being the source of truth:
+
+| Step | Location | Action | Notes |
+|------|----------|--------|-------|
+| 1️⃣ | GitHub | Fork Repository | Fork from aws-samples/suse-linux-on-aws-workshop |
+| 2️⃣ | Local Fork | Create Branch | Create and work on feature branch in your fork |
+| 3️⃣ | GitHub | Submit PR | Create pull request from fork to main repo |
+| 4️⃣ | GitHub | Review & Merge | Maintainers review and merge PR to `main` branch |
+| 5️⃣ | Local Main Repo | Pull Changes | Maintainer pulls latest from GitHub `main` branch |
+| 6️⃣ | Local Main Repo | Push to Workshop | Maintainer pushes local `main` to Workshop Studio's `mainline` branch |
+
+```ascii
+GitHub Main Repo     ❌ Never push directly
+(branch: main)   
+       ▲           
+       |           
+       | PR from Fork (following steps above)
+       |           
+Developer Fork      
+       ▲           
+       |           
+Developer Local     
+                   
+Maintainer Local Clone -----> Workshop Studio
+(branch: main)          Sync   (branch: mainline)
+    ▲                  main → mainline         
+    |                        
+    +--- Pull latest from GitHub main branch
+```
+    
+#### Important Notes for Maintainers
+
+After pull requests are merged following the process above:
+
+1. Pull latest changes to your local clone of the main repository
+2. Sync changes to Workshop Studio by pushing from local main branch to Workshop Studio's mainline branch
+3. Never make direct changes in Workshop Studio
+4. Ensure one-way flow: GitHub → Workshop Studio
 
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
