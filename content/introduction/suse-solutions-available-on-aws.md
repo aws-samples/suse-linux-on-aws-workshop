@@ -13,26 +13,31 @@ weight: 20
 
 ## SUSE Linux Enterprise Server for SAP Applications
 
-[SUSE Linux Enterprise Server for SAP Applications 15](https://aws.amazon.com/marketplace/pp/prodview-lwgsonfvizpeg?sr=0-8&ref_=beagle&applicationId=AWSMPContessa)
-
-[SUSE Linux Enterprise Server for SAP Applications 15 SP1](https://aws.amazon.com/marketplace/pp/prodview-vslryv2zo2ap6?sr=0-9&ref_=beagle&applicationId=AWSMPContessa)
-
-[SUSE Linux Enterprise Server for SAP Applications 15 SP2](https://aws.amazon.com/marketplace/pp/prodview-dqrluf6f3sxxc?sr=0-10&ref_=beagle&applicationId=AWSMPContessa)
-
-[SUSE Linux Enterprise Server for SAP Applications 15 SP3](https://aws.amazon.com/marketplace/pp/prodview-rk6hn4qjznqje?sr=0-12&ref_=beagle&applicationId=AWSMPContessa)
+[SUSE Linux Enterprise Server for SAP Applications 15 SP3](https://aws.amazon.com/marketplace/pp/prodview-rk6hn4qjznqje?sr=0-10&ref_=beagle&applicationId=AWSMPContessa)
 
 [SUSE Linux Enterprise Server for SAP Applications 15 SP4](https://aws.amazon.com/marketplace/pp/prodview-i37cwql5jqh5k?sr=0-11&ref_=beagle&applicationId=AWSMPContessa)
 
-[SUSE Linux Enterprise Server for SAP Applications 12 SP3](https://aws.amazon.com/marketplace/pp/prodview-viwg6b2beni74?sr=0-5&ref_=beagle&applicationId=AWSMPContessa)
+[SUSE Linux Enterprise Server for SAP Applications 15 SP5](https://aws.amazon.com/marketplace/pp/prodview-m5tkskjnlt3aw?sr=0-18&ref_=beagle&applicationId=AWSMPContessa)
 
-[SUSE Linux Enterprise Server for SAP Applications 12 SP4](https://aws.amazon.com/marketplace/pp/prodview-zt2nocb42enm2?sr=0-7&ref_=beagle&applicationId=AWSMPContessa)
+[SUSE Linux Enterprise Server for SAP Applications 15 SP6](https://aws.amazon.com/marketplace/pp/prodview-hmnfufvl5o4ji?sr=0-34&ref_=beagle&applicationId=AWSMPContessa)
 
 [SUSE Linux Enterprise Server for SAP Applications 12 SP5](https://aws.amazon.com/marketplace/pp/prodview-ktqthruoyjksm?sr=0-6&ref_=beagle&applicationId=AWSMPContessa)
 
+## SUSE Linux Enterprise Micro
+
+[SUSE Linux Enterprise Micro 5](https://aws.amazon.com/marketplace/pp/prodview-xdss75z5ocra4?sr=0-13&ref_=beagle&applicationId=AWSMPContessa)
+
+[SUSE Linux Enterprise Micro 6](https://aws.amazon.com/marketplace/pp/prodview-vjpywarv5vdpu?sr=0-9&ref_=beagle&applicationId=AWSMPContessa)
+
+[SUSE Linux Enterprise Micro 5 (ARM64)](https://aws.amazon.com/marketplace/pp/prodview-7f24suswswp6m?sr=0-20&ref_=beagle&applicationId=AWSMPContessa)
+
+[SUSE Linux Enterprise Micro 6 (ARM64)](https://aws.amazon.com/marketplace/pp/prodview-d3l5geyksuufa?sr=0-19&ref_=beagle&applicationId=AWSMPContessa)
+
+## SUSE Multi-Linux Manager
+
+[SUSE Multi-Linux Manager Server Family](https://aws.amazon.com/marketplace/pp/prodview-j7fpehzm7drba?sr=0-10&ref_=beagle&applicationId=AWSMPContessa)
+
+
 ## SUSE Enterprise Container Management
 
-[Rancher Setup](https://aws.amazon.com/marketplace/pp/prodview-go7ent7goo5ae?sr=0-1&ref_=beagle&applicationId=AWSMPContessa)
-
-[SUSE NeuVector for EKS](https://aws.amazon.com/marketplace/pp/prodview-jk4uf2444jjng?sr=0-9&ref_=beagle&applicationId=AWSMPContessa)
-
-[SUSE Rancher Priority Support (non-EU and non-UK only)](https://aws.amazon.com/marketplace/pp/prodview-wkhdeqhkzzqgu?sr=0-17&ref_=beagle&applicationId=AWSMPContessa)
+[SUSE Cloud Observability Agent for Amazon EKS](https://aws.amazon.com/marketplace/pp/prodview-waloezfcierak?sr=0-15&ref_=beagle&applicationId=AWSMPContessa)
