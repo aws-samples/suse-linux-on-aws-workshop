@@ -8,7 +8,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: MIT-0
 -->
 
-Using this tutorial, you will set up a reusable automation template within [AWS Service Catalog](https://us-east-1.console.aws.amazon.com/servicecatalog/home?region=us-east-1#home). This is quicker than manually provisioning your architecture, and allows you to easily provision/deprovision your architecture between labs if you are unable to do them all at once.
+Using this tutorial, you will set up a reusable automation template within [AWS Service Catalog](https://aws.amazon.com/servicecatalog/). This is quicker than manually provisioning your architecture, and allows you to easily provision/deprovision your architecture between labs if you are unable to do them all at once.
 
 With the Service Catalog we can use our own customized AWS CloudFormation template to create and launch a product that provisions the architecture we need to carry out the rest of the labs.
 
@@ -16,7 +16,7 @@ With the Service Catalog we can use our own customized AWS CloudFormation templa
 
 #### Step 1: Navigate to the Service Catalog
 
-First navigate to the [AWS Service Catalog](https://us-east-1.console.aws.amazon.com/servicecatalog/home?region=us-east-1#home) in the [AWS console](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1). Once there, make sure that you are in the North Virginia region, as our template is setup to work in that region specifically. You can find what region you are by checking the top right corner of the console, and if needed you can select that region and pick us-east-1 from the drop-down menu. 
+First navigate to the [AWS Service Catalog](https://us-east-1.console.aws.amazon.com/servicecatalog/home?region=us-east-1#home) in the [AWS console](https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1). Once there, make sure that you are in the North Virginia region, as our template is setup to work in that region specifically. You can find what region you are by checking the top right corner of the console, and if needed you can select that region and pick `us-east-1` from the drop-down menu. 
 
 ![Which region you should be in](../../static/setup/service_cat_1.jpg)
 
