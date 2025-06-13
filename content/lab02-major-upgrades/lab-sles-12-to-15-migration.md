@@ -11,7 +11,7 @@ SPDX-License-Identifier: MIT-0
 Lab Objectives: Use DMS to upgrade a SLES 12 instance to SLES 15.
 
 **💡 TIP**\
-It is worth noting that with SLES instances that actively being used in a commercial setting, it is important to [secure backups](https://documentation.suse.com/sles/15-SP4/single-html/SLES-upgrade/index.html#sec-update-preparation-backup) of any applications and OS binaries running on the instances before performing upgrades such as the one we will carry out in this lab. In this lab, we are performing the upgrade on an instance launched specifically for this workshop, and thus will not perform any backups.
+It is worth noting that with SLES instances that actively being used in a commercial setting, it is important to [secure backups](https://documentation.suse.com/sles/15-SP6/single-html/SLES-upgrade/index.html#sec-update-preparation-backup) of any applications and OS binaries running on the instances before performing upgrades such as the one we will carry out in this lab. In this lab, we are performing the upgrade on an instance launched specifically for this workshop, and thus will not perform any backups.
 
 ### Activity 1: Connect to the instance
 
