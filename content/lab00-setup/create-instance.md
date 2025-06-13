@@ -22,7 +22,7 @@ For the OS Image, we will choose an Amazon Machine Image (AMI) for a SUSE Linux 
 - Search for `suse-sles-12-sp5` AMIs
 - From the results, look under "Community AMIs". The image number can vary, so select the most recent AMI that matches the following pattern: `suse-sles-12-sp5-vXXXXXXXX-hvm-ssd-x86_64` option.
 
-Instance type specifications: `t3.micro`
+Instance type specifications: `t2.micro`
 
 #### Step 2: Security Key
 Use the Security Key created for these labs, or use an existing one that have already created.  You will need to SSH into the server once it has launched.
