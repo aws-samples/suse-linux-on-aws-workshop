@@ -200,7 +200,7 @@ Resources:
   LabInstance:
     Type: 'AWS::EC2::Instance'
     Properties:
-      ImageId: ami-09252aa4ac9d4ee50
+      ImageId: ami-0d6a3fb3bfdd87b52
       InstanceType: !Ref WorkshopInstanceType
       SubnetId: !Ref PublicSubnet
       SecurityGroupIds:
