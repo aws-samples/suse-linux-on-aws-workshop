@@ -256,7 +256,7 @@ curl http://169.254.169.254/latest/meta-data/local-ipv4 ; echo
 ::: -->
 
 #### Step 4: Workaround for RMT Package Error
-The current version of RMT has an [issue](https://www.suse.com/support/kb/doc/?id=000020958) where the file /usr/share/rmt/config/secrets.yml.key is created with wrong ownership during installation of the rmt-server package. To address this, you will need to correct the ownership of the file by running the below command on your RMT server:
+The current version of RMT has an [issue](https://web.archive.org/web/20230603174924/https://www.suse.com/support/kb/doc/?id=000020958) where the file /usr/share/rmt/config/secrets.yml.key is created with wrong ownership during installation of the rmt-server package. To address this, you will need to correct the ownership of the file by running the below command on your RMT server:
 
 :::code{showCopyAction=true showLineNumbers=true} 
 sudo chown _rmt:nginx /usr/share/rmt/config/secrets.yml.key

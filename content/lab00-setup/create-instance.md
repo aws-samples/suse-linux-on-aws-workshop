@@ -16,15 +16,13 @@ In this lab we will walk through the process of provisioning a Pay-as-you-go (PA
 
 From the [AWS EC2 dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Home:) click the button that says **Launch instance**. 
 
-Name the instance 'SUSE Linux Enterprise Server'.
+Name the instance `SUSE Linux Enterprise Server`.
 
 For the OS Image, we will choose an Amazon Machine Image (AMI) for a SUSE Linux Enterprise Server from the Community Marketplace.
-- Search for 'suse-sles-12-sp5-v2022' AMIs
-- From the results, look under "Community AMIs". The image number can vary, so select the most recent AMI that matches the following pattern: 'suse-sles-12-sp5-vXXXXXXXX-hvm-ssd-x86_64' option.
+- Search for `suse-sles-12-sp5` AMIs
+- From the results, look under "Community AMIs". The image number can vary, so select the most recent AMI that matches the following pattern: `suse-sles-12-sp5-vXXXXXXXX-hvm-ssd-x86_64` option.
 
-Instance type specifications:
-- t2.micro
-- If t2.micro is unavailable you can also use t3.micro, or t2.small (In regions where t2.micro isn't available, the t3.micro equivalent is supported under the AWS Free Tier as well)
+Instance type specifications: `t2.micro`
 
 #### Step 2: Security Key
 Use the Security Key created for these labs, or use an existing one that have already created.  You will need to SSH into the server once it has launched.

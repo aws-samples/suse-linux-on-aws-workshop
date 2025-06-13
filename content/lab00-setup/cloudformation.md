@@ -40,7 +40,7 @@ On the next page fill in the following values:
     - Make sure that you just put the file name, and not the file extension. For example, it would be keypair, not keypair.pem
     - If you need to create and download your own keypair, you can follow this guide: [How to Create a key pair in the AWS Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#having-ec2-create-your-key-pair)
 - Leave the instance type as the default (t2.micro)
-::alert[If the stack fails to create because the instance type is unavailable, you can select one of the other options such as t3.micro or t2.small and re-run the create.]
+::alert[If the stack fails to create because the instance type is unavailable, you can select one of the other options such as t2.small and re-run the create.]
 
 Then proceed to the next page by clicking **Next**.
 

@@ -15,95 +15,13 @@ Parameters:
     Default: t2.micro
     AllowedValues:
       - t2.micro
-      - t3.micro
       - t2.small
-    Description: 'Enter t2.micro, t3.micro, or t2.small. Default is t2.micro.'
+    Description: 'Enter t2.micro or t2.small, Default: t3.micro'
   RemoteAccessCIDR:
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/x
     Description: Allowed CIDR block for external SSH access to the Lab management server
     Type: String
-Metadata:
-  'AWS::CloudFormation::Designer':
-    c5b04bd4-fb56-484d-8ce6-79272a0ef0ac:
-      size:
-        width: 140
-        height: 140
-      position:
-        x: 390.0118103027344
-        'y': 104.0206527709961
-      z: 0
-      embeds: []
-    447ec6bb-785a-4471-83d6-cd7676eb4aac:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 615.0118103027344
-        'y': 99.0206527709961
-      z: 0
-      embeds: []
-    4dd8fe14-0b46-4576-b6cf-9f3e36d7b7e8:
-      source:
-        id: c5b04bd4-fb56-484d-8ce6-79272a0ef0ac
-      target:
-        id: 447ec6bb-785a-4471-83d6-cd7676eb4aac
-      z: 0
-    9af845be-8cfd-4adf-982c-73c96272a4ec:
-      size:
-        width: 140
-        height: 140
-      position:
-        x: 867.0118103027344
-        'y': 95.0206527709961
-      z: 0
-      embeds: []
-    80e1db14-115f-4940-9989-ad17178c57db:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 56.011810302734375
-        'y': 103.0206527709961
-      z: 0
-      embeds: []
-      isassociatedwith:
-        - 447ec6bb-785a-4471-83d6-cd7676eb4aac
-      iscontainedinside:
-        - 3921953b-2858-4987-9698-f7bccb6d5ebb
-    3921953b-2858-4987-9698-f7bccb6d5ebb:
-      size:
-        width: 140
-        height: 140
-      position:
-        x: 113.01181030273438
-        'y': 207.0206527709961
-      z: 0
-      embeds: []
-    5f5aaae6-f435-4964-b61b-9d2e3fd7b561:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 472.0118103027344
-        'y': 283.0206527709961
-      z: 0
-      embeds: []
-      iscontainedinside:
-        - c5b04bd4-fb56-484d-8ce6-79272a0ef0ac
-    469a26e7-24dc-4421-ad51-d5e762c1cc6d:
-      size:
-        width: 60
-        height: 60
-      position:
-        x: 653.0118103027344
-        'y': 255.0206527709961
-      z: 0
-      embeds: []
-      isassociatedwith:
-        - 5f5aaae6-f435-4964-b61b-9d2e3fd7b561
-      iscontainedinside:
-        - 9af845be-8cfd-4adf-982c-73c96272a4ec
 Resources:
   LabVPC:
     Type: 'AWS::EC2::VPC'
@@ -114,8 +32,6 @@ Resources:
         - Key: Name
           Value: SUSE Lab VPC
     Metadata:
-      'AWS::CloudFormation::Designer':
-        id: c5b04bd4-fb56-484d-8ce6-79272a0ef0ac
       cdk_nag:
         rules_to_suppress:
           - id: AwsSolutions-VPC7
@@ -126,17 +42,11 @@ Resources:
       Tags:
         - Key: Name
           Value: SUSE Lab IGW
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 447ec6bb-785a-4471-83d6-cd7676eb4aac
   IGWAttachment:
     Type: 'AWS::EC2::VPCGatewayAttachment'
     Properties:
       InternetGatewayId: !Ref IGW
       VpcId: !Ref LabVPC
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 4dd8fe14-0b46-4576-b6cf-9f3e36d7b7e8
   PublicSubnet:
     Type: 'AWS::EC2::Subnet'
     Properties:
@@ -150,8 +60,6 @@ Resources:
         - Key: Name
           Value: SUSE Lab Public Subnet
     Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 9af845be-8cfd-4adf-982c-73c96272a4ec
       cfn_nag:
         rules_to_suppress:
           - id: W33
@@ -163,9 +71,6 @@ Resources:
       RouteTableId: !Ref PublicRouteTable
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref IGW
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 80e1db14-115f-4940-9989-ad17178c57db
   PublicRouteTable:
     Type: 'AWS::EC2::RouteTable'
     Properties:
@@ -173,9 +78,6 @@ Resources:
       Tags:
         - Key: Name
           Value: SUSE Lab Public Route Table
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 3921953b-2858-4987-9698-f7bccb6d5ebb
   LabSubnetRouteTableAssociation:
     Type: 'AWS::EC2::SubnetRouteTableAssociation'
     Properties:
@@ -195,8 +97,6 @@ Resources:
           Description: Allow incoming SSH traffic from IP address or range defined in RemoteAccessCIDR Parameter
       VpcId: !Ref LabVPC
     Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 5f5aaae6-f435-4964-b61b-9d2e3fd7b561
       cdk_nag:
         rules_to_suppress:
           - id: CdkNagValidationFailure
@@ -208,7 +108,7 @@ Resources:
   LabInstance:
     Type: 'AWS::EC2::Instance'
     Properties:
-      ImageId: ami-09252aa4ac9d4ee50
+      ImageId: ami-0d6a3fb3bfdd87b52
       InstanceType: !Ref WorkshopInstanceType
       SubnetId: !Ref PublicSubnet
       SecurityGroupIds:
@@ -218,8 +118,6 @@ Resources:
         - Key: Name
           Value: SUSE Lab Instance
     Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 469a26e7-24dc-4421-ad51-d5e762c1cc6d
       cdk_nag:
         rules_to_suppress:
           - id: AwsSolutions-EC26

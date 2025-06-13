@@ -15,13 +15,11 @@ awsAccountConfig:
     deployableRegions:
       recommended:
         - us-east-1
-        - us-east-2
     minAccessibleRegions: 1
     maxAccessibleRegions: 3
     accessibleRegions:
       recommended:
         - us-east-1
-        - us-east-2
   participantRole:
     managedPolicies:
       - "arn:aws:iam::aws:policy/AdministratorAccess"

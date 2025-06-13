@@ -8,7 +8,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: MIT-0
 -->
 
-Modules are the building blocks/features that create the product that best fits your needs. Each module comes with a set of online repositories that contain the packages necessary to run and maintain the feature. Many modules already include the SUSE Linux Enterprise Server subscription. You have the option to subscribe to additional modules (known as [extensions](https://documentation.suse.com/sles/15-SP4/html/SLES-all/article-modules.html)), based on your needs. You can decide what to activate/deactivate from the pool of available modules to create the product that best fits those needs.
+Modules are the building blocks/features that create the product that best fits your needs. Each module comes with a set of online repositories that contain the packages necessary to run and maintain the feature. Many modules already include the SUSE Linux Enterprise Server subscription. You have the option to subscribe to additional modules (known as [extensions](https://documentation.suse.com/sles/15-SP6/html/SLES-all/article-modules.html)), based on your needs. You can decide what to activate/deactivate from the pool of available modules to create the product that best fits those needs.
 
 ### SUSE Modules (SLE15)
 Modules allow you to shape the deployment according to your needs.
